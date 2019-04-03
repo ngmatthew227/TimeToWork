@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "301363712650",
+    "firebase_url": "https://time2work-961aa.firebaseio.com",
+    "project_id": "time2work-961aa",
+    "storage_bucket": "time2work-961aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301363712650:android:204d439555fcae2a",
+        "android_client_info": {
+          "package_name": "com.b453.timetowork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301363712650-qhbd88305i63gs3jpklos8ecv3cpigc2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.b453.timetowork",
+            "certificate_hash": "0e45299dee7903356a1a877978e86e27da1e734e"
+          }
+        },
+        {
+          "client_id": "301363712650-q8u41iudjjk0b87er7n4subglloskhov.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG7_PKyyYcZLndwaNVbY1V9BQ0QMX4MxY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301363712650-q8u41iudjjk0b87er7n4subglloskhov.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
