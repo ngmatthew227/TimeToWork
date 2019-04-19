@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+    android:id="@+id/nav_todolist"
+    android:title="@string/to_do_list"
+    android:icon="@drawable/ic_check_circle_black_24dp"
+    />
+
+    <item
+        android:id="@+id/department"
+        android:icon="@drawable/ic_contacts_black_24dp"
+        android:title="@string/department"
+        />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_input_black_24dp"
+        android:title="@string/log_out"
+        />
+</menu>

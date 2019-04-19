@@ -17,7 +17,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
@@ -54,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task){
                             if(task.isSuccessful()) {
-                                startActivity(new Intent(LoginActivity.this, profile.class));
+                                startActivity(new Intent(LoginActivity.this, todo_list.class));
                             }else{
                                 Toast.makeText(LoginActivity.this, Objects.requireNonNull(task.getException()).getMessage(),
                                          Toast.LENGTH_LONG).show();
