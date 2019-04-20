@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/drawer"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerViewTasks"
+        android:id="@+id/ourdoes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clipToPadding="false"
@@ -14,12 +15,12 @@
 
     <!-- Floating action button that launches AddTaskActivity when clicked -->
     <android.support.design.widget.NavigationView
+        app:headerLayout="@layout/header"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/navigation_menu"
         android:layout_gravity = "start"
-        app:itemTextColor="@color/darkgery"
-        tools:ignore="MissingConstraints" />
+        app:itemTextColor="@color/darkgery"/>
 
 
     <RelativeLayout
@@ -27,13 +28,15 @@
         android:layout_width="match_parent">
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
+            android:id="@+id/btnAddNew"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="500dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="336dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginBottom="16dp"
             android:tint="@android:color/white"
             app:backgroundTint="@android:color/holo_blue_light"
             app:srcCompat="@android:drawable/ic_input_add" />

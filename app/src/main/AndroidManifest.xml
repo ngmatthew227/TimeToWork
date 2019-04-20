@@ -15,9 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".todo_list"></activity>
-        <activity
-            android:name=".LoginActivity">
+        <activity android:name=".NewTaskAct"></activity>
+        <activity android:name=".todo_list" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

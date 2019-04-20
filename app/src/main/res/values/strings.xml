@@ -24,4 +24,14 @@
     <string name="to_do_list">To Do List</string>
     <string name="department">Department</string>
     <string name="log_out">log out</string>
+    <string name="add_title">Add Title</string>
+    <string name="job_title">Job Title</string>
+    <string name="how_to">How to?</string>
+    <string name="description">Description</string>
+    <string name="enter_day">Enter Day</string>
+    <string name="due_date">Due Date</string>
+    <string name="add">Add New Job</string>
+    <string name="cancel">Cancel</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
