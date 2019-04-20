@@ -1,6 +1,7 @@
 package com.b453.timetowork;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,13 +35,13 @@ import java.util.Random;
 
 public class NewTaskAct extends AppCompatActivity {
 
-    TextView addtitle, adddesc, adddate;
-    EditText title_add, desc_add, date_add;
+    TextView addtitle, adddesc, adddate, date_add;
+    EditText title_add, desc_add;
     Button btnSaveTask, btnCancel;
+    ImageButton btnChoseDate;
     String uid = FirebaseAuth.getInstance().getUid();
     DatabaseReference myRef;
     Integer todonum = new Random().nextInt();
-    int add_date, addmonth, addyear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,39 +55,41 @@ public class NewTaskAct extends AppCompatActivity {
         title_add = findViewById(R.id.title_add);
         desc_add = findViewById(R.id.desc_add);
         date_add = findViewById(R.id.date_add);
+        btnChoseDate = findViewById(R.id.btnChoseDate);
 
         btnSaveTask = findViewById(R.id.btnSaveTask);
         btnCancel = findViewById(R.id.btnCancel);
 
-        date_add.setOnClickListener(new View.OnClickListener() {
+        btnChoseDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar c = Calendar.getInstance();
-                add_date=c.get(Calendar.DAY_OF_MONTH);
-                addmonth=c.get(Calendar.MONTH);
-                addyear=c.get(Calendar.YEAR);
                 new DatePickerDialog(NewTaskAct.this, new DatePickerDialog.OnDateSetListener(){
                     @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        date_add.setText(dayOfMonth+"/"+(month+1)+"/"+year);
+                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                        date_add.setText(dayOfMonth+"/"+monthOfYear+"/"+year);
                     }
-                },add_date, addmonth, addyear).show();
+                },c.get(Calendar.YEAR),c.get(Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
+
 
         btnSaveTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // insert data to database
+                final ProgressDialog mDialog = new ProgressDialog(NewTaskAct.this);
+                mDialog.setMessage("Please waiting....");
+                mDialog.show();
                 myRef = FirebaseDatabase.getInstance().getReference().child(uid).child("todo").
                         child("todo"+todonum);
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        mDialog.dismiss();
                         dataSnapshot.getRef().child("titledoes").setValue(title_add.getText().toString());
                         dataSnapshot.getRef().child("descdoes").setValue(desc_add.getText().toString());
                         dataSnapshot.getRef().child("datedoes").setValue(date_add.getText().toString());
-
                         Intent a = new Intent(NewTaskAct.this, todo_list.class);
                         startActivity(a);
                     }
@@ -95,7 +99,6 @@ public class NewTaskAct extends AppCompatActivity {
                 });
             }
         });
-
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,8 +106,5 @@ public class NewTaskAct extends AppCompatActivity {
                 startActivity(b);
             }
         });
-
-
-
     }
 }

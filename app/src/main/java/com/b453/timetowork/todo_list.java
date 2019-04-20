@@ -2,6 +2,7 @@ package com.b453.timetowork;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -24,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class todo_list extends AppCompatActivity {
+public class todo_list extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     String uid = FirebaseAuth.getInstance().getUid();
@@ -35,9 +37,10 @@ public class todo_list extends AppCompatActivity {
     ToDoItemsAdapter doesAdapter;
     View btnAddNew;
 
-    private DrawerLayout mDrawerlayout;
-    private ActionBarDrawerToggle mToggle;
-
+    DrawerLayout mDrawerlayout;
+    ActionBarDrawerToggle mToggle;
+    NavigationView navigationView;
+    private MenuItem menuItem;
 
 
     @Override
@@ -51,6 +54,9 @@ public class todo_list extends AppCompatActivity {
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_todolist);
 
         ourdoes = findViewById(R.id.ourdoes);
         ourdoes.setLayoutManager(new LinearLayoutManager(this));
@@ -79,7 +85,6 @@ public class todo_list extends AppCompatActivity {
                     doesAdapter = new ToDoItemsAdapter(todo_list.this,list);
                     ourdoes.setAdapter(doesAdapter);
                     doesAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -98,5 +103,23 @@ public class todo_list extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.navigation_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        this.menuItem = menuItem;
+        switch (menuItem.getItemId()){
+            case R.id.nav_todolist:
+                Intent a = new Intent(todo_list.this, department.class);
+                startActivity(a);
+                break;
+        }
+        return true;
     }
 }

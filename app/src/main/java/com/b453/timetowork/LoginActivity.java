@@ -1,6 +1,7 @@
 package com.b453.timetowork;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -47,11 +49,16 @@ public class LoginActivity extends AppCompatActivity {
         userLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                final ProgressDialog mDialog = new ProgressDialog(LoginActivity.this);
+                mDialog.setMessage("Please waiting....");
+                mDialog.show();
+
                 firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString(),
                         userPass.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task){
+                            mDialog.dismiss();
                             if(task.isSuccessful()) {
                                 startActivity(new Intent(LoginActivity.this, todo_list.class));
                             }else{

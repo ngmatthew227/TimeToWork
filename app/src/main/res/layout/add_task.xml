@@ -81,14 +81,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <EditText
-                android:id="@+id/date_add"
-                android:inputType="text"
-                android:background="@drawable/bginputtask"
-                android:paddingLeft="12dp"
-                android:hint="@string/enter_day"
-                android:layout_width="match_parent"
-                android:layout_height="55dp" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/date_add"
+                    android:layout_width="301dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="78dp"
+                    android:layout_marginEnd="0dp"
+                    android:background="@drawable/bginputtask"
+                    android:text="@string/date"
+                    android:paddingStart="12dp"
+                    android:paddingTop="12dp"
+                    android:textSize="20sp" />
+
+                <ImageButton
+                    android:id="@+id/btnChoseDate"
+                    android:layout_width="78dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="309dp"
+                    android:background="@drawable/bginputtask"
+                    app:srcCompat="@drawable/ic_today_black_24dp" />
+
+            </RelativeLayout>
+
+
         </LinearLayout>
 
         <Button
