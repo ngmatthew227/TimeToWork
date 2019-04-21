@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".department"></activity>
+        <activity android:name=".EditTaskDesk"/>
+        <activity android:name=".addContact"/>
+        <activity android:name=".department" />
         <activity android:name=".NewTaskAct" />
         <activity android:name=".todo_list" />
         <activity android:name=".LoginActivity">

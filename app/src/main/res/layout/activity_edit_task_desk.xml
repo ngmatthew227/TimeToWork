@@ -18,17 +18,16 @@
             android:layout_marginRight="16dp">
 
             <TextView
-                android:id="@+id/addtitle"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="@string/add_title"
+                android:text="@string/change_title"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
-                android:id="@+id/title_add"
+                android:id="@+id/title_Add"
                 android:inputType="text"
                 android:background="@drawable/bginputtask"
                 android:paddingLeft="12dp"
@@ -48,14 +47,14 @@
                 android:id="@+id/adddesc"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="@string/description"
+                android:text="@string/change_description"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <EditText
-                android:id="@+id/desc_add"
+                android:id="@+id/desc_Add"
                 android:inputType="text"
                 android:background="@drawable/bginputtask"
                 android:paddingLeft="12dp"
@@ -75,7 +74,7 @@
                 android:id="@+id/adddate"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="@string/due_date"
+                android:text="@string/change_due_date"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
@@ -86,7 +85,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/date_add"
+                    android:id="@+id/date_Add"
                     android:layout_width="301dp"
                     android:layout_height="55dp"
                     android:layout_alignParentStart="true"
@@ -98,10 +97,10 @@
                     android:text="@string/date"
                     android:paddingStart="12dp"
                     android:paddingTop="12dp"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"/>
 
                 <ImageButton
-                    android:id="@+id/btnChoseDate"
+                    android:id="@+id/btnChangeDate"
                     android:layout_width="78dp"
                     android:layout_height="55dp"
                     android:layout_alignParentStart="true"
@@ -134,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <RadioGroup
-                android:id="@+id/radioGroup"
+                android:id="@+id/radioGroup_change"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -143,7 +142,7 @@
                 android:weightSum="3">
 
                 <RadioButton
-                    android:id="@+id/radhigh"
+                    android:id="@+id/radhigh_change"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -152,7 +151,7 @@
                     android:text="@string/high_priority" />
 
                 <RadioButton
-                    android:id="@+id/radMed"
+                    android:id="@+id/radMed_change"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -160,7 +159,7 @@
                     android:text="@string/med_priority" />
 
                 <RadioButton
-                    android:id="@+id/radLow"
+                    android:id="@+id/radLow_change"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -179,7 +178,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/btnSaveTask"
+            android:id="@+id/btnSaveUpdate"
             android:layout_width="154dp"
             android:layout_height="54dp"
             android:layout_alignParentStart="true"
@@ -191,7 +190,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bgbtncreate"
-            android:text="@string/add"
+            android:text="@string/edit_job"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="22sp"
@@ -203,7 +202,7 @@
             app:layout_constraintVertical_bias="0.939" />
 
         <Button
-            android:id="@+id/btnCancel"
+            android:id="@+id/btnDelete"
             android:layout_width="154dp"
             android:layout_height="54dp"
             android:layout_alignParentStart="true"
@@ -215,7 +214,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bgbtncancel"
-            android:text="@string/cancel"
+            android:text="@string/delete"
             android:textAllCaps="false"
             android:textColor="#afadaf"
             android:textSize="22sp"
@@ -227,5 +226,6 @@
             app:layout_constraintVertical_bias="0.941" />
 
     </android.support.constraint.ConstraintLayout>
+
 
 </android.support.v4.widget.DrawerLayout>

@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
                 final ProgressDialog mDialog = new ProgressDialog(LoginActivity.this);
                 mDialog.setMessage("Please waiting....");
                 mDialog.show();
-
                 firebaseAuth.signInWithEmailAndPassword(userEmail.getText().toString(),
                         userPass.getText().toString())
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>(){
@@ -61,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                             mDialog.dismiss();
                             if(task.isSuccessful()) {
                                 startActivity(new Intent(LoginActivity.this, todo_list.class));
+                                finish();
                             }else{
                                 Toast.makeText(LoginActivity.this, Objects.requireNonNull(task.getException()).getMessage(),
                                          Toast.LENGTH_LONG).show();

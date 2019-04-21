@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class todo_list extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -63,11 +65,11 @@ public class todo_list extends AppCompatActivity implements NavigationView.OnNav
         list = new ArrayList<ToDoItems>();
 
         btnAddNew = findViewById(R.id.btnAddNew);
-
         btnAddNew.setOnClickListener(new View.OnClickListener(){
                 @Override
             public void onClick(View v) {
                 Intent a = new Intent(todo_list.this, NewTaskAct.class);
+                finish();
                 startActivity(a);
             }
         });
@@ -95,6 +97,27 @@ public class todo_list extends AppCompatActivity implements NavigationView.OnNav
             }
         });
 
+                /*
+         Add a touch helper to the RecyclerView to recognize when a user swipes to delete an item.
+         An ItemTouchHelper enables touch behavior (like swipe and move) on each ViewHolder,
+         and uses callbacks to signal when a user is performing these actions.
+         */
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            // Called when a user swipes left or right on a ViewHolder
+            @Override
+            public void onSwiped(final RecyclerView.ViewHolder viewHolder, int swipeDir) {
+                // Here is where you'll implement swipe to delete
+                int position = viewHolder.getAdapterPosition();
+                doesAdapter.removeItem(position);
+            }
+        }).attachToRecyclerView(ourdoes);
+
+
     }
 
     @Override
@@ -116,9 +139,19 @@ public class todo_list extends AppCompatActivity implements NavigationView.OnNav
         this.menuItem = menuItem;
         switch (menuItem.getItemId()){
             case R.id.nav_todolist:
-                Intent a = new Intent(todo_list.this, department.class);
+                Intent a = new Intent(todo_list.this, todo_list.class);
                 startActivity(a);
                 break;
+            case R.id.nav_department:
+                Intent b = new Intent(todo_list.this, department.class);
+                startActivity(b);
+                break;
+            case R.id.nav_logout:
+                Intent c = new Intent(todo_list.this, LoginActivity.class);
+                finish();
+                startActivity(c);
+                break;
+
         }
         return true;
     }

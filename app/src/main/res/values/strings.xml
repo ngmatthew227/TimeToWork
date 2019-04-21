@@ -35,4 +35,10 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="date">Date</string>
+    <string name="priority">Priority</string>
+    <string name="change_title">Change Title</string>
+    <string name="change_description">Change Description</string>
+    <string name="change_due_date">Change Due Date</string>
+    <string name="delete">Delete</string>
+    <string name="edit_job">Edit Job</string>
 </resources>
